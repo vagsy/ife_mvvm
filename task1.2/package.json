@@ -1,0 +1,25 @@
+{
+  "name": "task1.2",
+  "version": "1.0.0",
+  "description": "baidu.ife.mvvm.task1.2",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_ENV=development webpack-dev-server --config webpack.config.js",
+    "build": "NODE_ENV=production webpack --config webpack.config.js"
+  },
+  "author": "wind",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "css-loader": "^0.28.11",
+    "san-loader": "0.0.7",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.6.0",
+    "webpack-merge": "^4.1.2"
+  },
+  "dependencies": {
+    "san": "^3.5.7",
+    "san-router": "^1.2.0"
+  }
+}
