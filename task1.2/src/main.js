@@ -5,6 +5,7 @@ import Hello from './todo/Hello'
 
 import {router} from 'san-router'
 
+
 router.add({rule: '/', Component: Hello, target: '#app'});
 
 // start
