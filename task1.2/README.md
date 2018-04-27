@@ -38,6 +38,7 @@ C:\Users\Administrator\AppData\Roaming\npm\node_modules
 ![](./readimg/1.png)
 
 然后重启gitbash，成功
+
 ![](./readimg/2.png)
 
 ##### 2). ######
