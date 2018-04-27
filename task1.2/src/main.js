@@ -1,10 +1,10 @@
 import san from 'san';
 
 // route
-import Hello from './todo/Hello'
 
 import {router} from 'san-router'
 
+import Hello from './todo/Hello'
 
 router.add({rule: '/', Component: Hello, target: '#app'});
 
