@@ -1,0 +1,59 @@
+<template>
+  <div class="wrap">
+    <div class="entry">
+      <input value="{= name =}" type="text" placeholder="姓名（string）">
+      <input value="{= age =}" type="text" placeholder="年龄（number）">
+      <input value="{= des =}" type="text" placeholder="简介（string）">
+    </div>
+    <div class="tool">信息: <button on-click="clear">移除信息</button></div>
+    <div class="show">
+      <p>姓名：{{name}}</p>
+      <p>年龄：{{age | number}}</p>
+      <p>简介：{{des}}</p>
+    </div>
+  </div>
+</template>
+
+<script>
+import {DataTypes} from 'san';
+export default {
+    initData () {
+        return {
+            name: '',
+            age: '',
+            des: ''
+        };
+    },
+    dataTypes: {
+      name: DataTypes.string,
+      des: DataTypes.string
+    },
+    filters: {
+        number: function (value) {
+          return isNaN(parseInt(value)) ? undefined : parseInt(value);
+        }
+    },
+    clear() {
+      // clear data from input
+      this.data.set("name", '');
+      this.data.set("age", undefined);
+      this.data.set("des", '');
+    }
+}
+</script>
+
+<style>
+  .wrap {
+    width: 50%;
+    margin: 0 auto;
+  }
+  .wrap input {
+    outline: none;
+    height: 30px;
+    border: 1px solid #ccc;
+    text-indent: 1em;
+  }
+  .wrap .tool {
+    margin-top: 1em;
+  }
+</style>
