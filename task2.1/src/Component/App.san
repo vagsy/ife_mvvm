@@ -36,7 +36,7 @@ export default {
     clear() {
       // clear data from input
       this.data.set("name", '');
-      this.data.set("age", undefined);
+      this.data.set("age", '');
       this.data.set("des", '');
     }
 }
