@@ -1,0 +1,70 @@
+<template>
+  <div class="wrap">
+    <button on-click="add">添加</button>
+    <table border="1">
+      <thead>
+        <th>姓名</th>
+        <th>审核状态</th>
+        <th>操作</th>
+      </thead>
+      <tbody>
+        <tr s-for="item, index in persons">
+          <td>{{ item.name }}</td>
+          <td s-if="item.status==0">不合格</td>
+          <td s-if="item.status==1">合格</td>
+          <td s-if="item.status==2">待审核</td>
+          <td>
+            <button s-if="item.status!=2" on-click="del(item)">删除</button>
+            <button s-if="item.status==2" on-click="check(item, index)">审核</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>
+
+<script>
+import {DataTypes} from 'san';
+export default {
+    initData () {
+        return {
+            persons: [ //0-不合格 1-合格 2-待审核
+                {name: '张三', status: 1},
+                {name: '李四', status: 0},
+                {name: '王五', status: 2},
+                {name: '赵六', status: 2},
+                {name: '孙七', status: 2}
+            ]
+        };
+    },
+    add () {
+      console.log(1);
+    },
+    check (person) {
+      person.status=1
+      console.log(person)
+      this.data.merge('persons', person, {force: true});
+      this.fire('check');
+    },
+    del (person) {
+      console.log(3);
+      this.data.remove('persons', person);
+    }
+}
+</script>
+
+<style>
+  .wrap {
+    width: 50%;
+    margin: 0 auto;
+  }
+  .wrap table{
+    margin-top: 1em;
+    border-collapse: collapse;
+  }
+  .wrap table th,
+  .wrap table td{
+    padding: 6px 16px;
+    text-align: center;
+  }
+</style>
