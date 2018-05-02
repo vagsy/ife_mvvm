@@ -38,16 +38,14 @@ export default {
         };
     },
     add () {
-      console.log(1);
+      this.data.unshift('persons', {name: '小明', status: 2});
     },
     check (person) {
-      person.status=1
-      console.log(person)
-      this.data.merge('persons', person, {force: true});
-      this.fire('check');
+      person.status=1;
+      let _persons = this.data.get('persons');
+      this.data.set('persons', _persons, {force: true});
     },
     del (person) {
-      console.log(3);
       this.data.remove('persons', person);
     }
 }
