@@ -27,7 +27,7 @@ unshift
 ```
 在数组开始插入一条数据。
 ```
-this.data.unshift('persons', {name: '小明', status: 2});```
+this.data.unshift('persons', {name: '小明', status: 2});
 ```
 
 #### 删除 ####
