@@ -65,4 +65,7 @@ export default {
     padding: 6px 16px;
     text-align: center;
   }
+  button {
+    cursor: pointer;
+  }
 </style>
