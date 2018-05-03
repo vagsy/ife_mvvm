@@ -18,3 +18,16 @@ npm run build
 ```
 
   [1]: http://localhost:8080/
+
+注意点：
+
+```
+import HighParent from "./HighParent";
+export default {
+    components: {
+      'ui-highparent': HighParent
+    }
+}
+```
+
+components这里模板另命名一定要用小写，大写识别不了

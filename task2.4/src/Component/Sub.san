@@ -1,0 +1,44 @@
+<template>
+  <label>
+    子组件： <input type="text" value="{= value =}" on-input="judge" />
+    <button on-click="notice">通知父组件</button><span class="{{require ? 'require' : 'noshow'}}">必填</span>
+  </label>
+</template>
+
+<script>
+export default {
+  initData () {
+      return {
+        value: '',
+        require: false
+      };
+  },
+  notice () {
+    let value = this.data.get('value');
+    if (value != '') {
+      this.dispatch('UI:dispatch', value);
+    } else {
+      this.data.set("require", true);
+    }
+  },
+  judge () {
+    let value = this.data.get('value');
+    if (value != '') this.data.set("require", false);
+  }
+}
+</script>
+<style>
+  .require {
+    color: red;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    margin-left: 4px;
+  }
+  .noshow {
+    display: none;
+  }
+  input {
+    outline: none;
+  }
+</style>

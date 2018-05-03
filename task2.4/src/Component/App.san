@@ -1,42 +1,18 @@
 <template>
   <div>
-    <div id="block" class="pub {{isChange ? 'change' : ''}}" on-click="toggle" style="background:red;width:100px;height:100px;">class</div>
-    <div on-click="styleClick" style="margin-top:1em;background:red;width:100px;height:100px;{{styleFlag ? 'background: ' +color : ''}}" class="pub">style</div>
+    <ui-highparent></ui-highparent>
   </div>
 </template>
 
 <script>
-import {DataTypes} from 'san';
+import HighParent from "./HighParent";
 export default {
-    initData () {
-        return {
-          isChange: false,
-          styleFlag: false,
-          color: 'blue'
-        };
-    },
-    toggle () {
-        var isChange = this.data.get('isChange');
-        this.data.set('isChange', !isChange);
-    },
-    styleClick () {
-      var styleFlag = this.data.get('styleFlag');
-      this.data.set('styleFlag', !styleFlag);
+    components: {
+      'ui-highparent': HighParent
     }
 }
 </script>
 
 <style>
-  .pub {
-    text-align: center;
-    line-height: 100px;
-    color: #fff;
-    user-select: none;
-  }
-  .change{
-    width:100px;
-    height:100px;
-    background:blue !important;
-    border-radius: 50%;
-  }
+
 </style>

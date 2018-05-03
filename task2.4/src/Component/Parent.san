@@ -1,0 +1,35 @@
+<template>
+  <div>
+    <ui-sub></ui-sub>
+    <p class="{{change ? 'changed': ''}}">我是父组件：{{value}}</p>
+  </div>
+</template>
+
+<script>
+import Sub from "./sub";
+export default {
+  initData () {
+      return {
+        value: '静静等待用户输入',
+        change: false
+      };
+  },
+  // 上层组件处理自己想要的消息
+  components: {
+    'ui-sub': Sub
+  },
+  messages: {
+    'UI:dispatch' (arg) {
+      let value = arg.value;
+      this.data.set('value', value);
+      this.data.set('change', true);
+      this.dispatch('UI:parent-dispatch', value);
+    }
+  }
+}
+</script>
+<style>
+  .changed{
+    color: green;
+  }
+</style>
