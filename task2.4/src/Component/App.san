@@ -1,18 +1,25 @@
 <template>
-  <div>
+  <div class="wrap">
     <ui-highparent></ui-highparent>
+    <label>Choose</label>
+    <ui-choose-highparent></ui-choose-highparent>
   </div>
 </template>
 
 <script>
 import HighParent from "./HighParent";
+import ChooseHighParent from "./choose/HighParent";
+
 export default {
     components: {
-      'ui-highparent': HighParent
+      'ui-highparent': HighParent,
+      'ui-choose-highparent': ChooseHighParent,
     }
 }
 </script>
-
 <style>
-
+  .wrap{
+    margin: 5% auto;
+    width: 50%;
+  }
 </style>

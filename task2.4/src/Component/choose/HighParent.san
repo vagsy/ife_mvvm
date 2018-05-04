@@ -1,0 +1,34 @@
+<template>
+  <div>
+    <ui-parent value="{{ value }}"></ui-parent>
+    <p class="{{change ? 'changedd': ''}}">我是更高层父组件：<input value="{= value =}" class="{{change ? 'changedd': ''}}" /></p>
+  </div>
+</template>
+
+<script>
+import Parent from "./Parent";
+export default {
+  initData () {
+      return {
+        value: '我也静静等待用户输入',
+        change: false
+      };
+  },
+  components: {
+    'ui-parent': Parent
+  },
+  // 上层组件处理自己想要的消息
+  messages: {
+    'UI:parent-dispatch' (arg) {
+      let value = arg.value;
+      this.data.set('value', value);
+      this.data.set('change', true);
+    }
+  }
+}
+</script>
+<style>
+  .changedd{
+    color: purple;
+  }
+</style>
